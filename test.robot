@@ -1,7 +1,7 @@
 *** setting ***
-Library	           SSHLibrary
-Suite Setup        Open Connection
-Suite Teardown     Close All Connections
+Library    SSHLibrary
+Suite Setup    Open Connection
+Suite Teardown    Close All Connections
 *** Variables ***
 ${HOST}      127.0.0.1
 
