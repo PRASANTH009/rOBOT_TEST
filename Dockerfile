@@ -13,4 +13,4 @@ RUN pip install robotframework-sshlibrary
 
 EXPOSE 80
 
-CMD ["/usr/sbin/apache2", "-DFOREGROUND"]
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
