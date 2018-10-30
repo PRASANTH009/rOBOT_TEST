@@ -1,7 +1,6 @@
 *** setting ***
 Library	  		SSHLibrary
-Suite Setup		Open Connection And Log In
-Suite Teardown 	  Close All Connections
+
 *** Variables ***
 
 
