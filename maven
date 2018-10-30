@@ -1,0 +1,62 @@
+pipeline{
+    agent any
+    stages{
+        stage('test'){
+            steps{
+                
+                sh "ls -la ${env.WORKSPACE}"
+                
+            }
+        }
+        stage('Scm checkout'){
+            steps{
+                git credentialsId: '8c6a9d0e-492a-4ee4-ac03-2e88e3a8c9a7', url: 'https://github.com/PRASANTH009/java.git'
+
+            }
+        }
+          stage('Build') {
+         agent {
+           docker {
+          /*
+           * Reuse the workspace on the agent defined at top-level of Pipeline but run inside a container.
+           * In this case we are running a container with maven so we don't have to install specific versions
+           * of maven directly on the agent
+           */
+            
+          image 'maven:3.5.0-jdk-8'
+          args '-v /home/ec2-user/.jenkins/workspace/Test_maven:/root'
+        }
+      }
+      steps {
+       
+          sh 'cd /root'
+          sh 'ls -la'
+          sh 'touch hello1'
+        sh 'mvn clean package'
+        }
+      }
+      stage('test_1'){
+          agent{
+              docker{
+                  image 'ubuntu'
+                  args '-v /home/ec2-user/.jenkins/workspace/Test_maven:/root'
+                  
+              }
+          }
+          steps{
+              withCredentials([usernamePassword(credentialsId: '8c6a9d0e-492a-4ee4-ac03-2e88e3a8c9a7', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+  // available as an env variable, but will be masked if you try to print it out any which way
+  // note: single quotes prevent Groovy interpolation; expansion is by Bourne Shell, which is what you want
+  sh 'echo ${PASSWORD}'
+  // also available as a Groovy variable
+  echo USERNAME
+  // or inside double quotes for string interpolation
+  echo "username is ${USERNAME}"
+}
+              
+          }
+      }
+    
+      
+    }
+}
