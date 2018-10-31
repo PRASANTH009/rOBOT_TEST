@@ -7,7 +7,7 @@ ${result}=  [0]
 
 
 *** Keywords ***
-
+Library    Process
 
 
 *** Test Cases ***
@@ -27,4 +27,4 @@ Sever port checking
   [Documentation]  Checking port on  server
   ${result}=  Run Process  nmap  -p  85  localhost
   Should Contain  ${result.stdout}  open
-Library    Process
+
