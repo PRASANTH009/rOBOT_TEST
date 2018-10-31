@@ -6,11 +6,12 @@ RUN apt install python -y
 RUN apt install python-pip -y
 RUN apt install -y apache2 
 RUN apt install nmap -y
+RUN apt install nginx -y
 RUN pip install robotframework
 RUN pip install robotframework-rammbock
 RUN pip install robotframework-sshlibrary
 
 
 EXPOSE 80
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+CMD ["nginx", "-g", "daemon off;"]
 
