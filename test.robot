@@ -1,13 +1,13 @@
 *** setting ***
 
-Suite Teardown    Terminate All Processes    kill=True
+
 Library    Process
 *** Variables ***
 ${result}=  [0]
 
 
 *** Keywords ***
-
+Suite Teardown    Terminate All Processes    kill=True
 
 
 *** Test Cases ***
