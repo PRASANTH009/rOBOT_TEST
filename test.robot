@@ -20,3 +20,9 @@ Remote sever port checking
   [Documentation]  Checking port on remote server
   ${output}=  Run Process  nmap  -p  443  google.com
   Should Contain  ${output.stdout}  Host is up
+
+
+Sever port checking 
+  [Documentation]  Checking port on  server
+  ${output}=  Run Process  netstat  –tlpn |  grep  80
+  Should Contain  ${output.stdout}  LISTENING
