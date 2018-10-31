@@ -4,10 +4,10 @@ Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
 ${result}=  [0]
-
+Library    Process
 
 *** Keywords ***
-Library    Process
+
 
 
 *** Test Cases ***
