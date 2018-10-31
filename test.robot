@@ -25,5 +25,5 @@ Remote sever port checking
 
 Sever port checking 
   [Documentation]  Checking port on  server
-  ${result}=  Run Process  nmap  -p  80  --open  localhost
+  ${result}=  Run Process  nmap  -p  85  --open  localhost
   Should Contain  ${result.stdout}  open
