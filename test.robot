@@ -1,4 +1,4 @@
-** setting ***
+** settin ***
 
 
 Library    Process
