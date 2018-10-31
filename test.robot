@@ -24,5 +24,5 @@ Remote sever port checking
 
 Sever port checking 
   [Documentation]  Checking port on  server
-  ${output}=  Run Process  netstat  –tlpn |  grep  nginx
+  ${output}=  Run Process  netstat  –tlpn |  grep  "80"
   Should Contain  ${output.stdout}  LISTEN
