@@ -3,7 +3,7 @@ Library    Process
 Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
-${result}=  ${None}
+${result}=  [0]
 
 
 *** Keywords ***
