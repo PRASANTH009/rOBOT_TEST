@@ -1,5 +1,5 @@
 *** setting ***
-Library    Process
+
 Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
@@ -27,3 +27,4 @@ Sever port checking
   [Documentation]  Checking port on  server
   ${result}=  Run Process  nmap  -p  85  localhost
   Should Contain  ${result.stdout}  open
+Library    Process
