@@ -26,4 +26,4 @@ Remote sever port checking
 Sever port checking 
   [Documentation]  Checking port on  server
   ${result}=  Run Process  netstat  -tlpn  |  grep  85
-  Should Contain  ${result.stdout}  LISTEN
+  Should Contain Match  ${result.stdout}  LISTEN
